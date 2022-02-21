@@ -31,14 +31,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "npm run test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
-    "format": "prettier --ignore-path .gitignore --write \"src/**/*.{ts,tsx}\""
+    "format": "prettier --ignore-path .gitignore --write \"src/**/*.{ts,tsx}\"",
+    "heroku-postbuild": "npm run build"
   },
   "browserslist": {
     "production": [
