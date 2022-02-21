@@ -8,8 +8,7 @@
     "plugin:react/recommended",
     "plugin:jest/recommended",
     "airbnb",
-    "plugin:prettier/recommended",
-    "plugin:tailwindcss/recommended"
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,7 +18,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "jest", "react-hooks", "prettier", "tailwindcss"],
+  "plugins": ["react", "@typescript-eslint", "jest", "react-hooks", "prettier"],
   "rules": {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
@@ -46,28 +45,11 @@
       {
         "endOfLine": "auto"
       }
-    ],
-    "tailwindcss/classnames-order": "warn",
-    "tailwindcss/enforces-negative-arbitrary-values": "warn",
-    "tailwindcss/enforces-shorthand": "warn",
-    "tailwindcss/migration-from-tailwind-2": "warn",
-    "tailwindcss/no-arbitrary-value": "off",
-    "tailwindcss/no-custom-classname": "warn",
-    "tailwindcss/no-contradicting-classname": "error"
+    ]
   },
   "settings": {
     "import/resolver": {
       "typescript": {}
-    },
-    "tailwindcss": {
-      "callees": ["classnames", "clsx", "ctl"],
-      "config": "tailwind.config.js",
-      "cssFiles": ["**/*.css", "!**/node_modules", "!**/.*", "!**/dist", "!**/build"],
-      "cssFilesRefreshRate": 5000,
-      "groupByResponsive": true,
-      "prependCustom": false,
-      "removeDuplicates": true,
-      "whitelist": []
     }
   }
 }
