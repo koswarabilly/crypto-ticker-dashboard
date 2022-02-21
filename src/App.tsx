@@ -10,6 +10,7 @@ import {
   StatNumber,
   StatHelpText,
   StatArrow,
+  useToast,
 } from '@chakra-ui/react';
 import { Column } from 'react-table';
 import { Header, List } from './components';
@@ -123,16 +124,29 @@ export const cryptoColumns: Column<Asset>[] = [
 ];
 
 function App() {
+  const toast = useToast();
   const [search, setSearch] = useState('');
   const [searchTag, setSearchTag] = useState('');
   const [prices, setPrices] = useState({});
   const { data: res, isLoading } = useQuery('crypto', api.getAllAssets, {
     refetchOnWindowFocus: false,
+    onError: (err: any) =>
+      toast({
+        title: `Fail to get assets: ${err}`,
+        position: 'bottom',
+        isClosable: true,
+      }),
   });
   useQuery('price', api.getPrices, {
     refetchInterval: 3000,
     onSuccess: (rawPrices: Ticker[]) =>
       setPrices({ ...prices, ...api.parsePrices(rawPrices, prices) }),
+    onError: (err: any) =>
+      toast({
+        title: `Fail to get price: ${err}`,
+        position: 'bottom',
+        isClosable: true,
+      }),
   });
 
   const getAssets = useMemo(() => api.sanitizeAssets(res?.data || [], searchTag), [res, searchTag]);
