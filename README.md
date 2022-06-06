@@ -62,3 +62,4 @@ Currently this application is deployed automatically to Heroku every time there 
 - Add more feature like saving watchlist, detail graph of the assets, etc
 - Improve version control with tag
 - Implement websocket rather than request every 2000ms
+- Add review app on heroku
